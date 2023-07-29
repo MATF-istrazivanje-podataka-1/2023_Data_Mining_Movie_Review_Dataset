@@ -1,5 +1,6 @@
 import re
 import json
+import unicodedata
 
 from bs4 import BeautifulSoup
 
@@ -10,10 +11,10 @@ from nltk.stem import PorterStemmer, LancasterStemmer, SnowballStemmer
 
 import spacy
 
-import emot.core
-import unicodedata
-import contractions
 import emot
+import emot.core
+import contractions
+
 from spellchecker import SpellChecker
 
 nlp = spacy.load('en_core_web_sm')
