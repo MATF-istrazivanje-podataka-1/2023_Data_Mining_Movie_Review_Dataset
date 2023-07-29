@@ -1,5 +1,4 @@
 import re
-import codecs
 import json
 
 from bs4 import BeautifulSoup
@@ -19,12 +18,6 @@ from spellchecker import SpellChecker
 from chardet.universaldetector import UniversalDetector
 
 nlp = spacy.load('en_core_web_sm')
-
-
-def read_document(filepath, encoding='utf-8'):
-    with codecs.open(filepath, 'r', encoding) as file:
-        text = file.read()
-    return text
 
 
 def remove_html_tags(text):
