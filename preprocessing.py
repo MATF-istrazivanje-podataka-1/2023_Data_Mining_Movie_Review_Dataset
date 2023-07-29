@@ -15,7 +15,6 @@ import unicodedata
 import contractions
 import emot
 from spellchecker import SpellChecker
-from chardet.universaldetector import UniversalDetector
 
 nlp = spacy.load('en_core_web_sm')
 
@@ -46,21 +45,6 @@ def expand_contractions(text):
         expanded_text.append(contractions.fix(word))
     expanded_text = ' '.join(expanded_text)
     return expanded_text
-
-
-def detect_encoding(filepath):
-    detector = UniversalDetector()
-    with open(filepath, 'rb') as file:
-        for line in file:
-            detector.feed(line)
-            if detector.done:
-                break
-    detector.close()
-
-    encoding = detector.result['encoding']
-    confidence = detector.result['confidence']
-
-    return encoding, confidence
 
 
 def tokenize(text):
